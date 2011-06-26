@@ -1,0 +1,376 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Template Documentation</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+		body {font-size:80%;color:#222;background-image: url(assets/images/bg1.jpg); 
+
+background-repeat:repeat;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;padding-top:30px;}
+hr {background: url(assets/images/menuline.png) bottom repeat-x;
+clear:both;float:none;width:100%;height:.1em;margin:0 0 1.45em;border:none;}
+hr.space {background:#fff;color:#fff;}
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;vCard&rdquo; Documentation by &ldquo;josweb&rdquo; v1.0</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;Grey &amp; Black&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 31/5/2011<br>
+					By: Jo Phillips<br>
+					Website: <a href="http://spiralpixel.com">spiralpixel.com</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing my theme. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://themeforest.net/user/josweb">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#htmlStructure">HTML Structure</a></li>
+			<li><a href="#cssFiles">CSS Files and Structure</a></li>
+			<li><a href="#javascript">JavaScript &amp; Php</a></li>
+			
+			<li><a href="#credits">Sources and Credits</a></li>
+			
+			
+			
+			
+			
+		</ol>
+		
+		<hr>
+		
+		<h3 id="htmlStructure"><strong>A) HTML Structure</strong> - <a href="#toc">top</a></h3>
+		<p>I have divided the html into sections for you.<br/>
+		<p><b>About</b></p>
+		<img src="assets/images/top.jpg" alt="left" /><p>
+		1: Add you name and job title in the h1 and title tags.
+		<br/>2:  ABOUT PAGE STARTS -  This is your first page. To add your pictures to the Nivo Slider simply change your images in the code commented   - SLIDER GALLERY - ADD YOUR PHOTOS HERE . The slider images are 315px x 224px. <br/>The css, js and  images for the slider can be found in the folder > nivo. You can change the styling for this in the file called style.css.</p>
+		
+		
+		
+		
+		
+<p><b>Skills</b><br/>
+		
+		1: SKILLS PAGE STARTS - The quotes/ testimonials can be edited by  adding yours in the  blockquote html code. They have been commented for you, YOUR TESTIMONIALS.<br/>The star jpgs can be found in the images folder, I have added five jpgs to cover all ratings.</p>
+		
+		
+		
+		
+		<p><b>Gallery</b><br/>
+		1. GALLERY PAGE STARTS - The gallery has been coded using coda slider. You can find the css and images for this in the folder named > coda. <br/>
+		I have used three examples within this gallery<br/>
+		a) Thumbnails. The thumbnails are 60px x 60px in size. They open using PrettyPhoto. More information on this can be found in the php section below.<br/>
+		The page title can be added in between the h2 title tags.<br/>
+		b) Single. This type of gallery can show your featured projects.<br/>
+		c) Double. Shows the gallery using two pictures.</p>
+		
+		<p><b>Social</b><br/>
+		1:  SOCIAL PAGE STARTS - The social links use Tip Tip Tooltips. Information on these is shown in the php section below.<br/>
+		2: The Twitter Box. Add you own user name. You can find the code for this in the head section of the html code. Simply replace 'envato' with your twitter id.<br/>
+		<img src="assets/images/twitter.jpg" alt="twitter" /></p>
+		
+		<p><b>Contact</b>
+	<br/><b>Contact Form:</b><br/>
+		2: To get the contact form to forward to your email address.<br/>
+		a) In a text editor of your choice, open the folder called contact > php  >  contact-send.php <br/>
+	Scroll down to near the bottom of the page, round about line 50/51, until you see the line shown below.<br/>
+		 //No errors, send mail using conditional to ensure it was sent.
+		if(mail('YOUREMAILADDRESS', "Message from $input_name - $input_subject", $input_message, "From: $input_email"))
+		{
+<br/>b) Simply add your email address within the quote marks where it says YOUREMAILADDRESS<br/>	
+
+
+
+<br/><b>Google Maps:</b><br/>
+1; I have used the plugin called  jQuery GPS <br/>
+In order to use the Google Maps API you must have an API  key which you can get here: <br>http://code.google.com/intl/en/apis/maps/signup.html<br/>
+<img src="assets/images/api.jpg" alt="google" /><br/>
+2. Once you have it add it after where the code says key. You can see mine in the example above. You can find the code to change just above the end of the head section.<br/>
+3. To add your address to the map, scroll right down to the bottom of index.html until you see  GOOGLE MAP. Add your address where it says, England. Done!<br/>
+You can find more documentation about this plugin here:<br/>
+http://www.birdwingfx.com/jQuery_gps/docu.html</p>
+
+		
+		
+		
+		
+		
+	<br/>
+		
+
+		<hr>
+
+		<h3 id="cssFiles"><strong>B) CSS Files and Structure</strong> - <a href="#toc">top</a></h3>
+
+		<p>I'm using one CSS file for this theme.  - main.css. </p> 
+
+		<b>To change your background image</b><br/>
+		The css code  can be found at the top of .index.html</br>
+		Simply change the background image to any one of ten backgrounds. The backgrounds can be found in folder > bg.
+		
+		
+
+
+<pre>	
+/* 3: Grey Theme */
+.grey { border: 3px solid #fff; padding: 0px 0px; background: #fff; }
+.grey li > h2 { background-image:url(bg/dark_grid.jpg); background-repeat:repeat;
+font: normal 18px 'DroidSerifRegular', Arial, sans-serif; color: #555; 
+line-height: 2.4em; text-shadow: 0 -1px 0 #fff; }
+.grey li > h2 span {border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; 
+border-right: 1px solid #ccc; background-image:url(images/check.jpg); background-repeat:repeat; }
+/* number ++++++++++++++++++++++++++++++++++++++++++++ */
+.grey li > h2 b {  color: #999; font-size: 20px; background-image:url(images/check.jpg); background-repeat:repeat; }
+.grey li > h2 b:hover, .grey li > h2 :hover {  color: #777; }
+
+/* page background ++++++++++++++++++++++++++++++++++++++++++++ */
+.grey li > div {  background-color: #F9F9F9; height: 418px; border: 1px solid #ededed; }
+</pre>
+a) Grey Theme. The styling of your vcard.<br/>
+
+<pre>
+/* 2: HEADING */
+
+/* your name */
+h1 { font: normal 42px 'BallparkWeiner', Arial, sans-serif; color: #222;  
+text-align: center; text-shadow: 0px 1px 0px #fcfcfc; margin: 0px 0px; }
+
+/* what you do */
+.title {text-transform: uppercase; 
+font: normal 11px 'DroidSansRegular', Arial, sans-serif;  color: #222; 
+text-align: center; margin: 0px 0px 20px 0px; }
+
+/* INTRO */
+/* page headings */
+h3 { font: normal 20px 'DroidSerifRegular', Arial, sans-serif; color: #444;
+background: url(images/line.png) bottom repeat-x; padding: 0px 0px 2px 0px; 
+margin: 0px 0px; }
+
+.intro { font: normal 14px/1.6em 'DroidSerifItalic', Arial, sans-serif; 
+color: #666; margin: 8px 0 20px 0;}
+
+/* SUB HEADS */
+h4 { font: 13px 'DroidSansBold', Arial, sans-serif; color: #222; l
+etter-spacing: 0.01em; color: #888;
+background: url(images/line.png) bottom repeat-x; padding: 3px 0px 2px 0px; 
+margin: 0px 0 4px 0; }
+
+h5 { font: 11px 'DroidSansBold', Arial, sans-serif; 
+letter-spacing: 0.01em; color: #888; margin: 5px 0 0px 0 ;}
+
+/* LINKS */
+a { background-color: transparent; color: #777; outline: 0; 
+text-decoration: none; } 
+a:hover { background-color: transparent; color: #666; outline: 0; 
+text-decoration: none; }
+
+p {margin : 0 0 15px 0;}
+</pre>
+Typographic styling for your headings, sub heads, links and paragraphs.
+
+<pre>
+/*  3. COLUMNS & STYLING
+    .............................. */
+
+/* 1: MAIN BOX */
+/* layout container */
+.container {margin: 0px auto; width: 980px; text-align: center; }
+/* vcard container */
+.figure { display: block; width: 660px; height: 360px; 
+text-align: left; margin: 25px 30px 25px 30px;}
+
+/* 2: LEFT & RIGHT COLUMNS */
+.content-left { float: left; display: block; height: 250px; 
+width: 310px; margin: 0px 0px; }
+.content-right { float: right; display: block; height: 250px; 
+width: 310px; margin: 0px 0px; }
+
+/* 3:IMAGE STYLES */
+.fll  {padding: 4px; float: left; margin: 3px 10px 0px 0px; 
+border: 1px solid #999; }
+.flr { padding: 4px; float: right; margin: 0px 0px; }
+</pre>
+
+a) container - the wrap for the layout<br/>
+b) figure - each page sits within this div.<br/>
+c) content-left, content-right - left and right columns of your pages.<br/>
+d) .fll. .flr -  float left and float right image styling.
+
+
+<pre>/* 1: SKILLS */
+/
+.skill { font: 12px 'DroidSerifRegular', Arial, sans-serif; 
+letter-spacing: 0.01em; color: #333; float:left; margin: 4px 0 0px 0 ;}
+
+.star { margin: 0px 0px; float:right; }
+.bull { margin: 2px 3px 30px 0px; float:left; }
+.clear2 { background: url(images/line.png) bottom repeat-x; padding: 0px 0px; 
+height:1px; margin:-40px 0px 12px 0px;}
+
+/* left text box ++++++++++++++++++++++++++++++++++++++++++++ */
+.skills_left_text {  width: 270px; height: 300px; float: left; 
+margin: -15px 0px 20px 20px; }
+/* right text box ++++++++++++++++++++++++++++++++++++++++++++ */
+.skills_right_text {  width: 270px; height: 300px; float: right; 
+margin: -15px 20px 20px 0px; }
+
+
+/* quotes/ testimonials */
+blockquote { font: normal 12px/18px  'DroidSerifItalic', Arial, sans-serif;  
+color: #666; width: 270px; padding: 0px 0px;  margin: 0px 0px; }
+blockquote cite {font: normal 11px 'DroidSerifItalic', Arial, sans-serif;
+color: #888; float: right;}
+</pre>
+a) .star - styling for your stars.<br/>
+b) .bull - the styling for the grey star bullets.<br/>
+c) blockquote - styling for your testimonials<br/>
+
+<pre>/* twitter */
+.tweet, .query { background-image: url(images/twitter_bg.png); 
+background-repeat: no-repeat; width: 310px; height: 244px; }
+.tweet .tweet_list, .query .tweet_list { list-style-type: none; 
+padding: 22px 0px 0px 0px; margin: 0px 5px 10px 10px;
+font: normal 12px/18px 'DroidSansRegular', Arial, sans-serif; 
+color:#555; width: 290px; }
+.tweet .tweet_list li  { margin: 3px 10px 10px 8px; }
+.tweet .tweet_list li a, .query .tweet_list li a { color: #888; 
+text-decoration: none; }
+.tweet_avatar img {float: left; margin: 3px 8px 20px 0px; 
+vertical-align: middle; }</pre>
+
+Styling for your tweets<br/>
+
+<pre>
+/* contact form */
+.hide { font: normal 11px 'DroidSerifRegular', Arial, sans-serif; 
+display: none; color: #444; }
+input { outline: none; display: block; }
+#form_name, #form_email, textarea { font: normal 13px 'DroidSansRegular', Arial, 
+sans-serif; margin: -38px 0px 20px 70px; padding: 5px;
+width: 220px;border: 0px solid #ccc; -webkit-border-radius: 6px; 
+-moz-border-radius: 6px; border-radius: 6px;}
+.label { font: normal 12px 'DroidSansRegular', Arial, sans-serif; 
+margin-top: 10px; color: #666; }
+textarea { font: normal 12px 'DroidSansRegular', Arial, sans-serif; 
+width: 220px; height: 127px; padding: 5px; margin: -37px 0px 4px 70px; }
+#form_submit { font: normal 11px 'DroidSansBold', Arial, sans-serif; 
+letter-spacing: 1px; outline: 0; padding: 0px 5px;
+background: transparent url(images/form_button.png) no-repeat 0px 0px; 
+height: 32px; width: 80px; text-decoration: none; color: #fff; border: none; 
+text-transform: uppercase; cursor: pointer; margin-left: 67px;  }
+#form_name, #form_email, textarea { background: #f9f9f9 url(images/form-gradient.gif) 
+repeat-x  0px -2px; border: #ccc #edede #fff;
+border-style: solid; border-width: 1px; color: #666; }
+</pre>
+
+<p>This is the CSS for your contact form.</p>
+
+
+
+
+
+<b>Font replacement</b><br/>
+This theme uses Ballpark for your name and Droid for all other styling.<br/>
+All of the fonts are in the folder called font.</p>
+<br/>
+<br/>
+<hr>
+		
+		<h3 id="javascript"><strong>C) JavaScript &amp; Php</strong> - <a href="#toc">top</a></h3>
+		
+		<p>This theme uses javascript and php.</p>
+		
+		<ol>
+		
+		<li><b>Nivo Slider</b> is used for the about page image slider. You don't need to do anything with the coding, but if you do you can find everything in the folder named nivo. To add your images, size them 315px x 224px and place them into your images folder. The html has been described for you in the html section.
+		.
+<br/>Further information on can be found in the links section below.
+</li>
+			<li>Pretty Photo is used for photo gallery. "prettyPhoto is a jQuery lightbox clone. Not only does it support images, it also support for videos, flash, YouTube, iframes and ajax." (link in credits).
+</li>
+<li><b>How to edit the photo gallery</b><br/>
+1: Open index.html and scroll down to the footer section and find <!-- GALLERY PAGE STARTS--><br/>
+&lt;a href="images/large.jpg" rel="prettyPhoto[pp_gal]"&gt;&lt;img src="images/thumb.jpg" alt="your description" class="photo-top" border="0" height="60" width="60" /&gt;<br/>
+2: large.jpg is your large pop-up image and small.jpg is your thumbnail. Simply add your own graphics and place them in the images folder.<br/>
+3: Add your description in the alt tag of the thumbnail so that it will appear when viewing the larger image. Repeat this process until you have added all ten photos.<br/>
+4: Add the class - gallast to the last thumbnail image on each row.
+
+</li>
+
+
+
+
+<li><b>Contact Form</b><br/>This template uses an ajax/php form. I have explained how you can get it to forward to your email address in the html footer section above. All files can be found in the folder - contact.<br/>
+</li>
+
+
+
+<li> <b>TipTip Jquery</b><br/>Used for the hover tool tip effect on social icon links. <br/>
+To get this to work simply add a title tag to your link and:<br/>
+a) class="icon" -  for a hover above tool tip <br/>
+
+Here's an example:<br/>
+&lt;a href="#"&gt;&lt;img src="images/linked.png" class="icon" title="Linkedin" alt="linkedin" width="16" height="16" border="0" /&gt;&lt;/a&gt;<br/></li>
+
+</ol>
+		
+		<hr>
+		
+		
+		
+		
+		
+		
+		
+		
+		<h3 id="credits"><strong>D) Sources and Credits</strong> - <a href="#toc">top</a></h3>
+		
+		<p>I've used the following images, icons or other files as listed.
+		
+		<ul><li>Nivo Slider - http://nivo.dev7studios.com/
+			<li>Pretty Photo - http://www.no-margin-for-errors.com/projects/prettyphoto-jquery-lightbox-clone/</li>
+			<li>Tweet - http://tweet.seaofclouds.com/</li>
+			<li>TipTip - http://code.drewwilson.com/entry/tiptip-jquery-plugin/</li>
+			<li>jQuery GPS - http://www.birdwingfx.com/jQuery_gps/docu.html</li>
+			<li> Coda Slider - http://www.ndoherty.biz/demos/coda-slider/2.0/</li>
+			<li> Quovolver - http://sandbox.sebnitu.com/jquery/quovolver/</li>
+			<li> Web Fonts from fontsquirrel.com</li>
+			
+		</ul>
+		
+		<hr>
+		
+		<p>Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme. No guarantees, but I'll do my best to assist. If you have a more general question relating to the themes on ThemeForest, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p> 
+		
+		<p class="append-bottom alt large"><strong>Jo Phillips</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>

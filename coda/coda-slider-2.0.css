@@ -1,0 +1,81 @@
+/*
+	jQuery Coda-Slider v2.0 - http://www.ndoherty.biz/coda-slider
+	Copyright (c) 2009 Niall Doherty
+	This plugin available for use in all personal or commercial projects under both MIT and GPL licenses.
+*/
+
+
+/* Most common stuff you'll need to change */
+
+	.coda-slider-wrapper { padding: 0px 0px; margin-top:-5px; height:400px;}
+	.coda-slider {}
+	
+
+        /* Change the width of the entire slider (without dynamic arrows) */
+	.coda-slider, .coda-slider .panel { width: 600px; } 
+	
+	/* Change margin and width of the slider (with dynamic arrows) */
+	.coda-slider-wrapper.arrows .coda-slider, .coda-slider-wrapper.arrows 
+        .coda-slider .panel { width: 610px; padding:15px 0px 0px 0px;}
+	.coda-slider-wrapper.arrows .coda-slider { margin: 0 0px; }
+	
+	/* Arrow styling */
+	.coda-nav-left a { background-image: url(images/left_arrow.png);text-indent:-9999px; 
+        background-repeat:no-repeat; color: #fff; padding: 5px; width: 10px; margin-top:82px; }
+	.coda-nav-right a { background-image: url(images/right_arrow.png); text-indent:-9999px; 
+        background-repeat:no-repeat; color: #fff; padding: 5px; width: 10px; margin-top:82px; }
+	 
+        /* Tab nav */
+	.coda-nav ul li a.current { background: #ccc; }
+	
+	/* Hide Page Title */
+	#coda-slider-1 h2.title , #coda-slider-2 h2.title { display: none }
+ 
+	/* Preloader */
+	.coda-slider p.loading { padding: 0px; text-align: center }
+
+/* THUMBNAIL GALLERY */
+    /* thumbnail gallery background frame ++++++++++++++++++++++++++++++++++++++++++++ */
+    .gal { background: url(images/gallery_frame.png); background-repeat: no-repeat;
+    padding: 0px 0px; width: 90px; height: 80px; float: left; margin: 0px -8px 15px 18px;}
+
+    /* thumbnail gallery background frame - last on row ++++++++++++++++++++++++++++++++++++++++++++ */
+    .gallast { background: url(images/gallery_frame.png)  ; background-repeat: no-repeat;
+    padding:0px 0px; width: 90px; height: 80px; float: left; margin: 0px 0px 15px 18px; }
+
+    /* thumbnail gallery picture ++++++++++++++++++++++++++++++++++++++++++++ */
+    .gal2 { padding: 0px 0px; width: 60px; height: 60px; float: left; margin: 4px 0px 0px 4px; border: 1px solid #999; }
+
+
+/* LEFT & RIGHT PICTURE COLUMNS */
+    .left { background-image: url(images/gallery.png); 
+    background-repeat:no-repeat;float: left; width: 290px; margin: -10px 0px 0px 10px; padding-bottom:40px; }
+    .right { background-image: url(images/gallery.png); 
+    background-repeat:no-repeat; width: 290px; float: right;  margin: -10px 10px 0px 0px; padding-bottom:40px; }
+    /* larger gallery picture ++++++++++++++++++++++++++++++++++++++++++++ */    
+    .pic  { float: left; margin: 7px 0px 0px 7px; border: 1px solid #999; }
+
+/* LEFT & RIGHT TEXT COLUMNS FOR GALLERY */
+     /* left text box ++++++++++++++++++++++++++++++++++++++++++++ */
+     .left_text {  width: 280px; float: left; margin: -10px 0px 0px 10px; padding-bottom:10px; }
+     /* right text box ++++++++++++++++++++++++++++++++++++++++++++ */
+     .right_text {  width: 280px;  float: right; margin: -10px 10px 0px 0px; padding-bottom:10px; }
+
+        
+/* Don't change anything below here unless you know what you're doing */
+
+	/* Tabbed nav */
+.coda-nav  {  margin:0px auto; }
+	.coda-nav ul { padding: 0 0; display: block;  margin:0px auto; overflow: hidden; }
+	.coda-nav ul li {  display: inline;  }
+	.coda-nav ul li a {background: #555; color: #fff; display: block; float: left; margin-right: 2px; 
+        padding: 3px 6px 0px 6px; text-decoration: none }
+	
+	/* Miscellaneous */
+	.coda-slider-wrapper { clear: both; overflow: auto }
+	.coda-slider { float: left; overflow: hidden; position: relative }
+	.coda-slider .panel { display: block; float: left }
+	.coda-slider .panel-container { position: relative }
+	.coda-nav-left, .coda-nav-right { float: left }
+	.coda-nav-left a, .coda-nav-right a { display: block; text-align: center; text-decoration: none }
+	
