@@ -46,9 +46,9 @@
 		// core utility and animation methods
 			utils = {
 				getGroup : function(pos, index) {		
-					if (this.offsetLeft === pos.left) {
+					if (this.offsetLeft >= (pos.left - 3) && this.offsetLeft <= (pos.left + 3)) {
 						return $header.slice(index + 1, slideLen).filter(function() { return this.offsetLeft === $header.index(this) * settings.headerWidth });
-					} else if (this.offsetLeft === pos.right) {
+                    } else if (this.offsetLeft >= (pos.right - 3) && this.offsetLeft <= (pos.right + 3)) {
 						return $header.slice(0, index + 1).filter(function() { return this.offsetLeft === slideWidth + ($header.index(this) * settings.headerWidth) });	
 					} 					
 				},
