@@ -139,7 +139,7 @@ h3 { font: normal 22px 'DroidSerifRegular', Arial, sans-serif; color: #333;
 background: url(images/line.png) bottom repeat-x; padding: 0px 0px 5px 0px; margin: 0px 0px; }
 
 /* italic headings */
-.intro { font: normal 14px/1.6em 'DroidSerifItalic', Arial, sans-serif; color: #666; margin: 10px 0 20px 0;}
+.intro { font: normal 14px/1.6em 'DroidSerifItalic', Arial, sans-serif; color: #333; margin: 10px 0 33px 0; text-align: justify;}
 
 /* SUB HEADS */
 h4 { font: 14px 'DroidSerifRegular', Arial, sans-serif; color: #333; letter-spacing: 0.01em;
