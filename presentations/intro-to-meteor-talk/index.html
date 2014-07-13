@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Intro to Meteor - the Future Web Platform</title>
+
+		<meta name="description" content="">
+		<meta name="author" content="Daniel Chcouri">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+        <link rel="stylesheet" href="http://www.jointjs.com/css/joint.css" />
+        <script src="http://www.jointjs.com/js/joint.js"></script>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+
+      <section><h2><h1>Meteor</h1></h2>
+<h3>The Future Web Platform</h3>
+<p>
+    <small>By <a href="http://theosp.github.io/">Daniel Chcouri</a> / <a href="http://theosp.github.io/">theosp.github.io</a></small>
+</p>
+</section>
+<section><h2>Meteor</h2>
+
+<ul>
+<li>Full stack web platform for single page applications</li>
+<li>Real time interaction with the server via sockets</li>
+<li>Based on node.js (js on server & client)</li>
+<li>Modular - Easy to extend</li>
+</ul>
+</section>
+<section><h2>Background</h2>
+</section>
+<section><h2>Project File Structure</h2>
+
+<pre><code data-trim contenteditable>
+meteor-project
+├── common
+│   └── myapp.js
+├── server
+│   └── myapp.js
+├── client
+│   └── myapp.js
+└── main.html
+
+</code></pre>
+</section>
+<section><h2>Templates</h2>
+
+main.html <pre><code data-trim contenteditable>
+
+&lt;head&gt;
+    &lt;title&gt;Project Title&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;h1&gt;Today&apos;s weather!&lt;/h1&gt;
+  {{&gt; forecast}}
+&lt;/body&gt;
+
+&lt;template name=&quot;forecast&quot;&gt;
+  &lt;div&gt;It&apos;ll be {{prediction}} tonight&lt;/div&gt;
+  &lt;button&gt;Button&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+</section>
+<section><h2>Templates Helpers</h2>
+
+client/myapp.js <pre><code data-trim contenteditable>
+
+Template.forecast.prediction = function () {
+  return Math.random() > Math.random() ? "cloudy" : "cool and dry";
+};
+
+</code></pre>
+</section>
+<section><h2>Templates Events</h2>
+
+client/myapp.js <pre><code data-trim contenteditable>
+
+Template.forecast.events({
+  'click button': function () {
+    alert("Clicked");
+  }
+});
+</code></pre>
+</section>
+<section><h2>Packages</h2>
+
+<ul>
+<li>Coffee script support</li>
+<li>LESS css</li>
+<li>Users support (FB, Twitter, etc. bundles)</li>
+<li>Bootstrap</li>
+<li>Internationalization</li>
+</ul>
+<pre><code data-trim contenteditable>
+$ mrt add bootstrap-3
+</code></pre>
+</section>
+<section><h2>More Key Concepts</h2>
+
+<ul>
+<li>Sessions</li>
+<li>Collections & Publish/Subscribe</li>
+<li>Reactivity</li>
+</ul>
+</section>
+<section><h2>Open Chat Development Demo</h2>
+
+</section>
+<section><h2>Thank You!</h2>
+
+Daniel Chcouri / theosp.github.io
+
+</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+                rollingLinks: false,
+
+				theme: "beige", // available themes are in /css/theme
+				transition: "linear", // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

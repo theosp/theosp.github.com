@@ -1,0 +1,121 @@
+/-------
+<h1>Meteor</h1>
+<h3>The Future Web Platform</h3>
+<p>
+    <small>By <a href="http://theosp.github.io/">Daniel Chcouri</a> / <a href="http://theosp.github.io/">theosp.github.io</a></small>
+</p>
+-------/
+
+/------- Meteor
+
+/*
+* Full stack web platform for single page applications
+* Real time interaction with the server via sockets
+* Based on node.js (js on server & client)
+* Modular - Easy to extend
+*/
+
+-------/
+
+/------- Background
+-------/
+
+/------- Project File Structure
+
+/#######
+
+meteor-project
+├── common
+│   └── myapp.js
+├── server
+│   └── myapp.js
+├── client
+│   └── myapp.js
+└── main.html
+
+#######/
+
+-------/
+
+/------- Templates
+
+/####### main.html
+
+&lt;head&gt;
+    &lt;title&gt;Project Title&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;h1&gt;Today&apos;s weather!&lt;/h1&gt;
+  {{&gt; forecast}}
+&lt;/body&gt;
+
+&lt;template name=&quot;forecast&quot;&gt;
+  &lt;div&gt;It&apos;ll be {{prediction}} tonight&lt;/div&gt;
+  &lt;button&gt;Button&lt;/button&gt;
+&lt;/template&gt;
+#######/
+
+-------/
+
+/------- Templates Helpers
+
+/####### client/myapp.js
+
+Template.forecast.prediction = function () {
+  return Math.random() > Math.random() ? "cloudy" : "cool and dry";
+};
+
+#######/
+
+-------/
+
+/------- Templates Events
+
+/####### client/myapp.js
+
+Template.forecast.events({
+  'click button': function () {
+    alert("Clicked");
+  }
+});
+#######/
+
+-------/
+
+/------- Packages
+
+/*
+* Coffee script support
+* LESS css
+* Users support (FB, Twitter, etc. bundles)
+* Bootstrap
+* Internationalization
+*/
+
+/#######
+
+$ mrt add bootstrap-3
+#######/
+
+-------/
+
+/------- More Key Concepts
+
+/*
+* Sessions
+* Collections & Publish/Subscribe
+* Reactivity
+*/
+
+-------/
+
+/------- Open Chat Development Demo
+
+-------/
+
+/------- Thank You!
+
+Daniel Chcouri / theosp.github.io
+
+-------/
