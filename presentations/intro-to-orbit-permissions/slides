@@ -1,0 +1,215 @@
+/-------
+<h1 style="font-size: 110px;">orbit:permissions</h1>
+<h3>Authorization for Meteor Package Developers</h3>
+<p>
+    <small>By <a href="http://theosp.github.io/">Daniel Chcouri</a> / <a href="http://theosp.github.io/">theosp.github.io</a></small>
+</p>
+-------/
+
+/------- 
+
+<i></i>
+
+<img src="images/logo.png" width="60%" style="margin: 0 auto;" /><br />
+<a href="http://www.MeteorSpark.com">www.MeteorSpark.com</a>
+<br />
+<u>Developed For:</u><br />
+<img src="images/tap.png" style="width: 400px;" /><br />
+<a href="http://www.tapevents.com">www.TAPevents.com</a>
+
+-------/
+
+
+/------- The Orbit Project
+
+An open source content management platform for Meteor <br />
+A platform for web & mobile apps for non-developers
+
+-------/
+
+/------- Orbit Users
+
+/*
+* Developers of packages (plugins) for Orbit
+* App Developers
+* App Editors
+*/
+
+-------/
+
+/------- Orbit Authorization Needs
+
+/*
+* Permissions are defined and used in multiple packages
+* Permissions of one package can be used by other packages
+* Package and app developers should be able to set some predefined roles (collection of permissions), they assume will be in wide use
+* Project editors can add more roles to the system with any set of Permissions
+*/
+
+-------/
+
+/------- orbit:permissions Structure
+
+<img src="images/structure.png" width="100%" />
+
+-------/
+
+/------- orbit:permissions Permissions
+
+/*
+* <b>permissions:delegate-and-revoke</b>: Delegate and revoke user roles
+* <b>permissions:get-users-roles</b>: Query roles of other users
+* <b>permissions:edit-custom-roles</b>: Define and undefine custom roles
+*/
+
+-------/
+
+/------- orbit:permissions Package Roles
+
+<ul class="task-list">
+<li>
+<p><strong>permissions:admin</strong>:</p>
+
+<ul class="task-list">
+<li>Users with this role will have all the permissions of all the packages</li>
+</ul>
+</li>
+<li>
+<p><strong>permissions:permissions-manager</strong>:</p>
+
+<ul class="task-list">
+<li>permissions:delegate-and-revoke</li>
+<li>permissions:get-users-roles</li>
+<li>permissions:edit-custom-roles</li>
+</ul>
+</li>
+</ul>
+
+-------/
+
+/------- orbit:permissions API
+
+-------/
+
+/------- Defining Permissions and Package Roles
+
+/#######javascript Chat Package Example 
+// Common code on client and server
+
+(new OrbitPermissions.Registrar("chat"))
+  .definePermission("remove-message")
+  .definePermission("edit-message")
+  .definePermission("appoint-manager")
+  .defineRole("chat-moderator", ["edit-message", "remove-message"]);
+
+#######/
+
+-------/
+
+/------- Defining Permissions and Package Roles
+
+/#######javascript Package Role in the Application level
+// Common code on client and server
+
+// Registrar for the app is created when
+// OrbitPermissions.Registrar() is called with no args
+appplication_registrar = new OrbitPermissions.Registrar(); 
+
+appplication_registrar
+  .definePermission("approve-accounts")
+  .defineRole("site-moderator", 
+     ["chat:edit-message",
+      "chat:remove-message",
+      "project:approve-accounts"]);
+
+#######/
+
+-------/
+
+/------- Custom Roles
+
+/####### Define and undefine a Custom Role
+// On the client, the following requires the 
+// permissions:edit-custom-roles permission
+
+OrbitPermissions.defineCustomRole("underprivileged-moderator",
+    ["project:approve-accounts", "chat:remove-message"]);
+
+OrbitPermissions.undefineCustomRole("underprivileged-moderator");
+
+#######/
+
+-------/
+
+/------- Delegate & Revoke Roles
+
+/####### Delegate & Revoke a role
+
+// On the client, the following requires the
+// permissions:delegate-and-revoke permission
+
+OrbitPermissions.delegate(user,
+  ["chat:chat-moderator", "project:site-moderator"]);
+
+OrbitPermissions.revoke(user,
+  ["chat:chat-moderator", "project:site-moderator"]);
+
+#######/
+
+-------/
+
+/------- Check for permission
+
+/#######javascript Allow costom roles modifications only if user has the edit-custom-roles permission
+
+// On the client, checking permissions of other users require the
+// permissions:get-users-roles permission
+
+CustomRoles.allow({
+  insert: function (userId, doc) {
+    return OrbitPermissions.userCan("edit-custom-roles",
+                                      "permissions", userId);
+  },
+  remove: function (userId, doc) {
+    return OrbitPermissions.userCan("edit-custom-roles",
+                                      "permissions", userId);
+  )
+});
+
+#######/
+
+-------/
+
+/------- Template Helper
+
+/#######html The "can" helper
+{{#if can "remove-message" "chat"}}
+    <button>Remove Message</button>
+{{/if}}
+#######/
+
+-------/
+
+/------- Admins Related Commands
+
+/#######javascript Admins Related Commands
+
+// On the client, requires the permissions:get-users-roles permission unless
+// checked on logged user
+OrbitPermissions.isAdmin(user)
+
+// On the client, requires the permissions:delegate-and-revoke permission
+OrbitPermissions.addAdmins(users)
+
+// On the client, requires the permissions:delegate-and-revoke permission
+OrbitPermissions.removeAdmins(users)
+
+#######/
+
+-------/
+
+/------- Fork Me On GitHub
+
+<a href="https://github.com/TAPevents/orbit-permissions">TAPevents/orbit-permissions</a>
+
+-------/

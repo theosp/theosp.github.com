@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Intro to Meteor - the Future Web Platform</title>
+
+		<meta name="description" content="">
+		<meta name="author" content="Daniel Chcouri">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+        <link rel="stylesheet" href="http://www.jointjs.com/css/joint.css" />
+        <script src="http://www.jointjs.com/js/joint.js"></script>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+
+      <section><h2><h1 style="font-size: 110px;">orbit:permissions</h1></h2>
+<h3>Authorization for Meteor Package Developers</h3>
+<p>
+    <small>By <a href="http://theosp.github.io/">Daniel Chcouri</a> / <a href="http://theosp.github.io/">theosp.github.io</a></small>
+</p>
+</section>
+<section><h2><i></i></h2>
+
+<img src="images/logo.png" width="60%" style="margin: 0 auto;" /><br />
+<a href="http://www.MeteorSpark.com">www.MeteorSpark.com</a>
+<br />
+<u>Developed For:</u><br />
+<img src="images/tap.png" style="width: 400px;" /><br />
+<a href="http://www.tapevents.com">www.TAPevents.com</a>
+
+</section>
+<section><h2>The Orbit Project</h2>
+
+An open source content management platform for Meteor <br />
+A platform for web & mobile apps for non-developers
+
+</section>
+<section><h2>Orbit Users</h2>
+
+<ul>
+<li>Developers of packages (plugins) for Orbit</li>
+<li>App Developers</li>
+<li>App Editors</li>
+</ul>
+</section>
+<section><h2>Orbit Authorization Needs</h2>
+
+<ul>
+<li>Permissions are defined and used in multiple packages</li>
+<li>Permissions of one package can be used by other packages</li>
+<li>Package and app developers should be able to set some predefined roles (collection of permissions), they assume will be in wide use</li>
+<li>Project editors can add more roles to the system with any set of Permissions</li>
+</ul>
+</section>
+<section><h2>orbit:permissions Structure</h2>
+
+<img src="images/structure.png" width="100%" />
+
+</section>
+<section><h2>orbit:permissions Permissions</h2>
+
+<ul>
+<li><b>permissions:delegate-and-revoke</b>: Delegate and revoke user roles</li>
+<li><b>permissions:get-users-roles</b>: Query roles of other users</li>
+<li><b>permissions:edit-custom-roles</b>: Define and undefine custom roles</li>
+</ul>
+</section>
+<section><h2>orbit:permissions Package Roles</h2>
+
+<ul class="task-list">
+<li>
+<p><strong>permissions:admin</strong>:</p>
+
+<ul class="task-list">
+<li>Users with this role will have all the permissions of all the packages</li>
+</ul>
+</li>
+<li>
+<p><strong>permissions:permissions-manager</strong>:</p>
+
+<ul class="task-list">
+<li>permissions:delegate-and-revoke</li>
+<li>permissions:get-users-roles</li>
+<li>permissions:edit-custom-roles</li>
+</ul>
+</li>
+</ul>
+
+</section>
+<section><h2>orbit:permissions API</h2>
+
+</section>
+<section><h2>Defining Permissions and Package Roles</h2>
+
+Chat Package Example  <pre><code data-trim contenteditable class="javascript">
+// Common code on client and server
+
+(new OrbitPermissions.Registrar("chat"))
+  .definePermission("remove-message")
+  .definePermission("edit-message")
+  .definePermission("appoint-manager")
+  .defineRole("chat-moderator", ["edit-message", "remove-message"]);
+
+</code></pre>
+</section>
+<section><h2>Defining Permissions and Package Roles</h2>
+
+Package Role in the Application level <pre><code data-trim contenteditable class="javascript">
+// Common code on client and server
+
+// Registrar for the app is created when
+// OrbitPermissions.Registrar() is called with no args
+appplication_registrar = new OrbitPermissions.Registrar(); 
+
+appplication_registrar
+  .definePermission("approve-accounts")
+  .defineRole("site-moderator", 
+     ["chat:edit-message",
+      "chat:remove-message",
+      "project:approve-accounts"]);
+
+</code></pre>
+</section>
+<section><h2>Custom Roles</h2>
+
+Define and undefine a Custom Role <pre><code data-trim contenteditable>
+// On the client, the following requires the 
+// permissions:edit-custom-roles permission
+
+OrbitPermissions.defineCustomRole("underprivileged-moderator",
+    ["project:approve-accounts", "chat:remove-message"]);
+
+OrbitPermissions.undefineCustomRole("underprivileged-moderator");
+
+</code></pre>
+</section>
+<section><h2>Delegate & Revoke Roles</h2>
+
+Delegate & Revoke a role <pre><code data-trim contenteditable>
+
+// On the client, the following requires the
+// permissions:delegate-and-revoke permission
+
+OrbitPermissions.delegate(user,
+  ["chat:chat-moderator", "project:site-moderator"]);
+
+OrbitPermissions.revoke(user,
+  ["chat:chat-moderator", "project:site-moderator"]);
+
+</code></pre>
+</section>
+<section><h2>Check for permission</h2>
+
+Allow costom roles modifications only if user has the edit-custom-roles permission <pre><code data-trim contenteditable class="javascript">
+
+// On the client, checking permissions of other users require the
+// permissions:get-users-roles permission
+
+CustomRoles.allow({
+  insert: function (userId, doc) {
+    return OrbitPermissions.userCan("edit-custom-roles",
+                                      "permissions", userId);
+  },
+  remove: function (userId, doc) {
+    return OrbitPermissions.userCan("edit-custom-roles",
+                                      "permissions", userId);
+  )
+});
+
+</code></pre>
+</section>
+<section><h2>Template Helper</h2>
+
+The "can" helper <pre><code data-trim contenteditable class="html">
+{{#if can "remove-message" "chat"}}
+    <button>Remove Message</button>
+{{/if}}
+</code></pre>
+</section>
+<section><h2>Admins Related Commands</h2>
+
+Admins Related Commands <pre><code data-trim contenteditable class="javascript">
+
+// On the client, requires the permissions:get-users-roles permission unless
+// checked on logged user
+OrbitPermissions.isAdmin(user)
+
+// On the client, requires the permissions:delegate-and-revoke permission
+OrbitPermissions.addAdmins(users)
+
+// On the client, requires the permissions:delegate-and-revoke permission
+OrbitPermissions.removeAdmins(users)
+
+</code></pre>
+</section>
+<section><h2>Fork Me On GitHub</h2>
+
+<a href="https://github.com/TAPevents/orbit-permissions">TAPevents/orbit-permissions</a>
+
+</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+                rollingLinks: false,
+
+				theme: "beige", // available themes are in /css/theme
+				transition: "linear", // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
